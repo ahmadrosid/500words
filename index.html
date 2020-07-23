@@ -9,6 +9,9 @@
         textarea {
             height: 650px;
         }
+        .container {
+            max-width: 650px;
+        }
     </style>
 </head>
 <body>
@@ -18,17 +21,17 @@
         x-init="() => { window.setInterval(() => count == 0 ? 0 : count--, 1000) }"
         >
         <div class="w-full">
-            <h1 class="text-2xl py-4">Let's write 500 words in one hour</h1>
-            <textarea 
-                class="border w-full p-4 rounded" 
-                x-model="body"
-                placeholder="Write here...">
-            </textarea>
-            <p class="py-4">
+            <h1 class="text-2xl pt-4">Let's write 500 words in one hour</h1>
+            <p class="pb-4 text-gray-500">
                 Words : <span x-text="wordCount(body)"></span>, 
                 Timer : <span x-text="Math.floor(count / 60)"></span> minutes, 
                 <span x-text="count - Math.floor(count / 60) * 60;"></span> seconds
             </p>
+            <textarea
+                class="w-full rounded focus:outline-none" 
+                x-model="body"
+                placeholder="Write here...">
+            </textarea>
         </div>
     </div>
 </body>
