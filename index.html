@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <style>
         textarea {
-            height: 650px;
+            min-height: 750px;
         }
         .container {
             max-width: 650px;
@@ -28,13 +28,14 @@
                 <span x-text="count - Math.floor(count / 60) * 60;"></span> seconds
             </p>
             <textarea
-                class="w-full rounded focus:outline-none" 
+                class="w-full h-screen rounded focus:outline-none" 
                 x-model="body"
                 placeholder="Write here...">
             </textarea>
         </div>
     </div>
 </body>
+<script src="https://www.unpkg.com/autosize@4.0.2/dist/autosize.min.js"></script>
 <script>
     function app() {
         return {
@@ -43,5 +44,6 @@
             wordCount: (str) => str == '' ? 0 : str.match(/\S+/g).length
         }
     }
+    autosize(document.querySelector('textarea'));
 </script>
 </html>
